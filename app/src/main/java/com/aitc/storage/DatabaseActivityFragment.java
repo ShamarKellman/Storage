@@ -1,6 +1,7 @@
 package com.aitc.storage;
 
 import android.app.Activity;
+import android.database.Cursor;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,8 +38,11 @@ public class DatabaseActivityFragment extends Fragment {
         list = (ListView) rootview.findViewById(R.id.database_list_view);
 
         db = new DBHelper(getActivity());
-
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(getActivity(), R.layout.db_row_item, db.getAllPersons(), Const.LIST_COULMNS, Const.LIST_LAYOUT_IDS, 0);
+        Cursor cursor = db.getAllPersons();
+        SimpleCursorAdapter adapter =
+                new SimpleCursorAdapter(getActivity(),
+                        R.layout.db_row_item, cursor,
+                        Const.LIST_COULMNS, Const.LIST_LAYOUT_IDS, 0);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

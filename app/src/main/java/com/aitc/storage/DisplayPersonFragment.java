@@ -46,7 +46,7 @@ public class DisplayPersonFragment extends Fragment {
 
         Cursor cursor = dbHelper.getData(id);
 
-        displayName.setText(cursor.getString(cursor.getColumnIndex(Const.DB_COLUMN_NAME)));
+        displayName.setText(getValue(cursor, Const.DB_COLUMN_NAME));
         displayPosition.setText(cursor.getString(cursor.getColumnIndex(Const.DB_COLUMN_POSITION)));
         displayAge.setText(Integer.toString(cursor.getInt(cursor.getColumnIndex(Const.DB_COLUMN_AGE))));
         displayEmail.setText(cursor.getString(cursor.getColumnIndex(Const.DB_COLUMN_EMAIL)));
@@ -55,5 +55,9 @@ public class DisplayPersonFragment extends Fragment {
 
         // Inflate the layout for this fragment
         return rootView;
+    }
+
+    private String getValue(Cursor c, String col){
+        return c.getString(c.getColumnIndex(col));
     }
 }

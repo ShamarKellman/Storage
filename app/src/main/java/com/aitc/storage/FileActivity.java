@@ -50,7 +50,8 @@ public class FileActivity extends AppCompatActivity {
         adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, files);
 
         // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(
+                android.R.layout.simple_spinner_dropdown_item);
 
         fileList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -62,7 +63,9 @@ public class FileActivity extends AppCompatActivity {
                     File file = new File(getFilesDir(), item);
 
                     FileInputStream fileInputStream = new FileInputStream(file);
-                    BufferedReader myReader = new BufferedReader(new InputStreamReader(fileInputStream));
+                    BufferedReader myReader =
+                            new BufferedReader(
+                                    new InputStreamReader(fileInputStream));
 
                     String line = "";
                     String content = "";

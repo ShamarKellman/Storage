@@ -30,7 +30,10 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertPerson  (String name, int age, String phone, String email, String position, String street, String place) {
+    public boolean insertPerson  (String name, int age,
+                                  String phone, String email,
+                                  String position, String street,
+                                  String place) {
         Log.d("DBHELPER", "here");
         try {
             SQLiteDatabase db = this.getWritableDatabase();
@@ -62,7 +65,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public Cursor getData(int id){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res =  db.rawQuery( "SELECT * FROM persons WHERE _id = " + id , null);
-        res.moveToFirst();
         return res;
     }
 

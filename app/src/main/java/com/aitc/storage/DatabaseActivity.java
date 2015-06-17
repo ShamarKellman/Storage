@@ -100,12 +100,14 @@ public class DatabaseActivity extends AppCompatActivity implements DatabaseActiv
     public void onItemSelected(long id) {
         if (findViewById(R.id.fragment) != null) {
             // Create a new Fragment to be placed in the activity layout
-            DisplayPersonFragment displayPersonFragment = new DisplayPersonFragment();
+            DisplayPersonFragment displayPersonFragment
+                    = new DisplayPersonFragment();
             Bundle bundle = new Bundle();
             bundle.putLong("id", id);
 
             displayPersonFragment.setArguments(bundle);
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            FragmentTransaction transaction =
+                    getSupportFragmentManager().beginTransaction();
 
             transaction.replace(R.id.fragment, displayPersonFragment);
             transaction.addToBackStack("person");
